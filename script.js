@@ -77,7 +77,7 @@ function getAttendance() {
 }
 
 function displayAttendance(subject) {
-    subjects = getAttendance();
+    let subjects = getAttendance();
 
     let attended = subjects[subject].attended;
     let total = subjects[subject].total;
