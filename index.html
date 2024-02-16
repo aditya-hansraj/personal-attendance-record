@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Attendance</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Welcome <br><span id="header-name"></span></h1>
+        </header>
+        <table>
+            <tr>
+                <th id="subjects">Subjects</th>
+                <th id="attended">Attended</th>
+                <th id="percentage">Percentage</th>
+                <th id="action"></th>
+            </tr>
+            <tr id="CSW2">
+                <td>CSW 2</td>
+                <td><span class="attended">0</span> / <span class="total">0</span></td>
+                <td class="percentage-attendance">0%</td>
+                <td>
+                    <button class="plus" data-subject="CSW2" id="plus-CSW2" onclick="updateAttendance('CSW2')">+</button>
+                    <button class="minus" data-subject="CSW2" id="minus-CSW2">-</button>
+                </td>
+            </tr>
+            <tr id="AD2">
+                <td>AD 2</td>
+                <td><span class="attended">0</span> / <span class="total">0</span></td>
+                <td class="percentage-attendance">0%</td>
+                <td>
+                    <button class="plus" data-subject="AD2" id="plus-AD2" onclick="updateAttendance('AD2')">+</button>
+                    <button class="minus" data-subject="AD2" id="minus-AD2">-</button>
+                </td>
+            </tr>
+            <tr id="COA">
+                <td>COA</td>
+                <td><span class="attended">0</span> / <span class="total">0</span></td>
+                <td class="percentage-attendance">0%</td>
+                <td>
+                    <button class="plus" data-subject="COA" id="plus-COA" onclick="updateAttendance('COA')">+</button>
+                    <button class="minus" data-subject="COA" id="minus-COA">-</button>
+                </td>
+            </tr>
+            <tr id="ALA">
+                <td>ALA</td>
+                <td><span class="attended">0</span> / <span class="total">0</span></td>
+                <td class="percentage-attendance">0%</td>
+                <td>
+                    <button class="plus" data-subject="ALA" id="plus-ALA" onclick="updateAttendance('ALA')">+</button>
+                    <button class="minus" data-subject="ALA" id="minus-ALA">-</button>
+                </td>
+            </tr>
+            <tr id="UHV">
+                <td>UHV</td>
+                <td><span class="attended">0</span> / <span class="total">0</span></td>
+                <td class="percentage-attendance">0%</td>
+                <td>
+                    <button class="plus" data-subject="UHV" id="plus-UHV" onclick="updateAttendance('UHV')">+</button>
+                    <button class="minus" data-subject="UHV" id="minus-UHV">-</button>
+                </td>
+            </tr>
+        </table>
+    
+        <div class="modal" id="nameModal">
+            <div class="modal-content">
+                <h2>Welcome to the Attendance Website</h2>
+                <div class="form">
+                    <input type="text" id="userNameModal" placeholder="Enter Your Name">
+                    <button onclick="saveName()">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="updateAttendance-modal">
+            <div action="#" id="attendance-form" class="modal-content">
+                <h1>Have you attended the <span></span> class ?</h1>
+                <div class="form-group">  
+                    <label for="yes" class="yes attendance-label">
+                        <i class='bx bxs-check-circle'></i>
+                    </label>
+                    <input type="radio" name="attended" id="yes" value="1">
+    
+                    <label for="no" class="no attendance-label">
+                        <i class='bx bxs-x-circle'></i>
+                    </label>
+                    <input type="radio" name="attended" id="no" value="0">
+                </div>
+
+                <button id="attendance-submit"">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>
