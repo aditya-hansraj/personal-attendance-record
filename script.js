@@ -1,4 +1,3 @@
-
 class Subject {
     constructor(name, total = 0, attended = 0) {
         this.name = name;
@@ -18,15 +17,6 @@ class Subject {
     }
 }
 
-// const subjects = {
-//     CSW2: new Subject("CSW2"),
-//     AD2: new Subject("AD2"),
-//     COA: new Subject("COA"),
-//     ALA: new Subject("ALA"),
-//     UHV: new Subject("UHV")
-// }
-
-
 function updateAttendance(subject) {
     $('#attendance-form h1 span').text(subject);
     $('#updateAttendance-modal').show();
@@ -34,7 +24,7 @@ function updateAttendance(subject) {
 
     $('#attendance-submit').off('click'); // Remove any existing click handlers
     $('#attendance-submit').on('click', () => {
-        const selectedValue = $('input[name="attended"]:checked').val();
+        let selectedValue = $('input[name="attended"]:checked').val();
         let subjects = getAttendance();
 
         subjects[subject].total += 1;
@@ -50,11 +40,63 @@ function updateAttendance(subject) {
         displayAttendance(subject);
         updatePercentage();
 
+        allRemoveButtonSettings();
+
         $('.attendance-label').removeClass('highlight');
 
         $('#updateAttendance-modal .modal-content').fadeOut(100);
         $('#updateAttendance-modal').hide();
     });
+}
+
+function removeAttendance(subject) {
+    $('#removeAttendance-form h1 span').text(subject);
+    $('#removeAttendance-modal').show();
+    $('#removeAttendance-modal .modal-content').fadeIn(100);
+
+    // $('#removeAttendance-submit').off('click');
+    $('#removeAttendance-submit').on('click', () => {
+        let selectedValue = $('input[name="classAttended"]:checked').val();
+        let subjects = getAttendance();
+
+        subjects[subject].total = Math.max(parseInt(subjects[subject].total - 1), 0);
+
+        subjects[subject].attended = Math.max(parseInt(+subjects[subject].attended - +selectedValue), 0);
+
+        if(subjects[subject].total == 0)
+        subjects[subject].attended = +0;
+
+        subjects[subject].calculatePercentage();
+
+        localStorage.setItem("subjectsAttendance", JSON.stringify(subjects));
+        displayAttendance(subject);
+        updatePercentage();
+
+        allRemoveButtonSettings();
+
+        $('.removeAttendance-label img').removeClass('selected');
+
+        $('#removeAttendance-modal .modal-content').fadeOut(100);
+        $('#removeAttendance-modal').hide();
+    });
+}
+
+function setRemoveButtonSettings(subjects, subject, btn) {
+    if(subjects[subject].total == 0){
+        $(btn).prop('disabled', true);
+        $(btn).addClass('disabled');
+    }else{
+        $(btn).prop('disabled', false);
+        $(btn).removeClass('disabled');
+    }
+}
+
+function allRemoveButtonSettings() {
+    const subs = getAttendance();
+    Object.keys(subs).forEach(sub => {
+        const minusButton = $(`#minus-${sub}`); 
+        setRemoveButtonSettings(subs, sub, minusButton);
+    })
 }
 
 // function getAttendance() {
@@ -79,7 +121,7 @@ function getAttendance() {
         COA: new Subject("COA"),
         ALA: new Subject("ALA"),
         UHV: new Subject("UHV")
-    }
+    };
 }
 
 function displayAttendance(subject) {
@@ -155,10 +197,17 @@ $(document).ready(function () {
     displayAttendance('ALA');
     displayAttendance('UHV');
 
+    allRemoveButtonSettings();
+
     $('.attendance-label').on('click', function () {
         $('.attendance-label').removeClass('highlight');
         $(this).addClass('highlight');
     });
+
+    $('.removeAttendance-label').on('click', function () {
+        $('.selected').removeClass('selected');
+        $(this).find('img').addClass('selected');
+    })
 
     updatePercentage();
 
