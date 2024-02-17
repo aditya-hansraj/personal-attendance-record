@@ -159,9 +159,10 @@ td button {
     border-radius: 10px;
 }
 
-.form {
+.modal-content .form {
     width: 100%;
     text-align: center;
+    margin-top: 2em;
 }
 
 .form input {
