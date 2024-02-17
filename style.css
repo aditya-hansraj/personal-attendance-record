@@ -204,6 +204,7 @@ td button {
 
 #attendance-form .form-group {
     margin: 2em;
+    user-select: none;
 }
 
 #attendance-form .yes {
