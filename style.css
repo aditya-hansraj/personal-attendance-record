@@ -107,6 +107,10 @@ td button {
     margin: 0 0.2em;
 }
 
+.attended {
+    color: #4CAF50;
+}
+
 .plus{
     background-color: #4CAF50;
 }
@@ -122,8 +126,6 @@ td button {
 .minus:hover {
     background-color: rgb(232, 79, 79);
 }
-
-
 
 .red-text {
     color: red;
