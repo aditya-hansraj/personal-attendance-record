@@ -27,7 +27,7 @@
                 <td class="percentage-attendance">0%</td>
                 <td>
                     <button class="plus" data-subject="CSW2" id="plus-CSW2" onclick="updateAttendance('CSW2')">+</button>
-                    <button class="minus" data-subject="CSW2" id="minus-CSW2">-</button>
+                    <button class="minus disabled data-subject="CSW2" id="minus-CSW2" onclick="removeAttendance('CSW2')" disabled>-</button>
                 </td>
             </tr>
             <tr id="AD2">
@@ -36,7 +36,7 @@
                 <td class="percentage-attendance">0%</td>
                 <td>
                     <button class="plus" data-subject="AD2" id="plus-AD2" onclick="updateAttendance('AD2')">+</button>
-                    <button class="minus" data-subject="AD2" id="minus-AD2">-</button>
+                    <button class="minus disabled data-subject="AD2" id="minus-AD2" onclick="removeAttendance('AD2')" disabled>-</button>
                 </td>
             </tr>
             <tr id="COA">
@@ -45,7 +45,7 @@
                 <td class="percentage-attendance">0%</td>
                 <td>
                     <button class="plus" data-subject="COA" id="plus-COA" onclick="updateAttendance('COA')">+</button>
-                    <button class="minus" data-subject="COA" id="minus-COA">-</button>
+                    <button class="minus disabled data-subject="COA" id="minus-COA" onclick="removeAttendance('COA')" disabled>-</button>
                 </td>
             </tr>
             <tr id="ALA">
@@ -54,7 +54,7 @@
                 <td class="percentage-attendance">0%</td>
                 <td>
                     <button class="plus" data-subject="ALA" id="plus-ALA" onclick="updateAttendance('ALA')">+</button>
-                    <button class="minus" data-subject="ALA" id="minus-ALA">-</button>
+                    <button class="minus disabled data-subject="ALA" id="minus-ALA" onclick="removeAttendance('ALA')" disabled>-</button>
                 </td>
             </tr>
             <tr id="UHV">
@@ -63,7 +63,7 @@
                 <td class="percentage-attendance">0%</td>
                 <td>
                     <button class="plus" data-subject="UHV" id="plus-UHV" onclick="updateAttendance('UHV')">+</button>
-                    <button class="minus" data-subject="UHV" id="minus-UHV">-</button>
+                    <button class="minus disabled data-subject="UHV" id="minus-UHV" onclick="removeAttendance('UHV')" disabled>-</button>
                 </td>
             </tr>
         </table>
@@ -79,7 +79,7 @@
         </div>
 
         <div class="modal" id="updateAttendance-modal">
-            <div action="#" id="attendance-form" class="modal-content">
+            <div id="attendance-form" class="modal-content">
                 <h1>Have you attended the <span></span> class ?</h1>
                 <div class="form-group">  
                     <label for="yes" class="yes attendance-label">
@@ -93,14 +93,30 @@
                     <input type="radio" name="attended" id="no" value="0">
                 </div>
 
-                <button id="attendance-submit"">SUBMIT</button>
+                <button class="modal-submit" id="attendance-submit">SUBMIT</button>
+            </div>
+        </div>
+
+        <div class="modal" id="removeAttendance-modal">
+            <div id="removeAttendance-form" class="modal-content">
+                <h1>Remove attendance for <span></span>?</h1>
+                <div class="form-group">
+                    <label class="removeAttendance-label" for="attended-class">
+                        <img src="imgs/present.png" alt="present" draggable="false">
+                    </label>
+                    <input type="radio" name="classAttended" id="attended-class" value="1">
+
+                    <label class="removeAttendance-label" for="not-attended-class">
+                        <img src="imgs/absent.png" alt="absent" draggable="false">
+                    </label>
+                    <input type="radio" name="classAttended" id="not-attended-class" value="0">
+                </div>
+
+                <button class="modal-submit" id="removeAttendance-submit">REMOVE</button>
             </div>
         </div>
     </div>
     
     <script src="script.js"></script>
-    <script>
-
-    </script>
 </body>
 </html>
