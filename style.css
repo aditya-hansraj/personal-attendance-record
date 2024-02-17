@@ -288,6 +288,14 @@ label[for="no"].highlight i{
         font-size: 1em;
     }
 
+    #nameModal .modal-content {
+        width: 90%;
+    }
+
+    #userNameModal {
+        width: 70%;
+    }
+
     #attendance-form {
         width: 90%;
     }
