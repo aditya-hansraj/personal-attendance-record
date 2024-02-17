@@ -124,7 +124,7 @@ td button {
     background-color: rgb(215, 37, 37);
 }
 
-.minus:hover {
+.minus:not([disabled]):hover {
     background-color: rgb(232, 79, 79);
 }
 
@@ -222,7 +222,7 @@ td button {
     margin: 0.5em;
 }
 
-#attendance-form button {
+.modal-submit {
     width: 7em;
     height: 3em;
     padding: 0;
@@ -260,6 +260,34 @@ label[for="no"].highlight i{
     padding: 0;
     border: 1px solid red;
 }
+
+#removeAttendance-modal input[type="radio"] {
+    display: none;
+}
+
+#removeAttendance-form h1 span {
+    color: rgb(255, 75, 75);
+}
+
+#removeAttendance-modal label img {
+    margin: 2em;
+    width: 7em;
+    border-radius: 50%;
+    padding: 1em;
+}
+
+#removeAttendance-modal label img.selected {
+    border: 5px solid;
+}
+
+.disabled {
+    background-color: grey;
+    cursor: auto;
+}
+
+
+
+
 
 
 @media only screen and (max-width: 600px) {
