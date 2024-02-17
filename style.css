@@ -287,4 +287,8 @@ label[for="no"].highlight i{
     .form button {
         font-size: 1em;
     }
+
+    #attendance-form {
+        width: 90%;
+    }
 }
