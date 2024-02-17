@@ -319,7 +319,7 @@ label[for="no"].highlight i{
         font-size: 1em;
     }
 
-    #nameModal .modal-content {
+    .modal-content {
         width: 90%;
     }
 
