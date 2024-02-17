@@ -73,7 +73,13 @@ function getAttendance() {
             Object.entries(storedAttendance).map(([key, value]) => [key, new Subject(value.name, value.total, value.attended)])
         );
     }
-    return null;
+    return {
+        CSW2: new Subject("CSW2"),
+        AD2: new Subject("AD2"),
+        COA: new Subject("COA"),
+        ALA: new Subject("ALA"),
+        UHV: new Subject("UHV")
+    }
 }
 
 function displayAttendance(subject) {
