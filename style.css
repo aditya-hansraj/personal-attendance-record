@@ -251,14 +251,14 @@ label[for="yes"].highlight i{
     color: rgb(40, 180, 40);
     border-radius: 50%;
     padding: 0;
-    border: 1px solid green;
+    border: 5px solid green;
 }
  
 label[for="no"].highlight i{
     color: rgb(255, 75, 75);
     border-radius: 50%;
     padding: 0;
-    border: 1px solid red;
+    border: 5px solid red;
 }
 
 #removeAttendance-modal input[type="radio"] {
